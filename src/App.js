@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
 import { GameStateProvider, useGameState } from './GameStateContext';
 
 function Board() {
   const { state, dispatch } = useGameState();
-  const { squares: contextSquares } = state;
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [resetBoard, setResetBoard] = useState(false);
+  const { squares } = state;
   const nextValue = calculateNextValue(squares);
   const winner = calculateWinner(squares);
   const status = calculateStatus(winner, squares, nextValue);
@@ -16,20 +13,12 @@ function Board() {
     }
     const newSquares = [...squares];
     newSquares[square] = nextValue;
-    setSquares(newSquares);
+    dispatch({ type: 'UPDATE_SQUARES', payload: newSquares });
   }
 
   function restart() {
-    setResetBoard(true);
+    dispatch({ type: 'RESET' });
   }
-
-  useEffect(() => {
-    if (resetBoard) {
-      setSquares(Array(9).fill(null));
-      setResetBoard(false);
-    }
-  }, [squares, resetBoard]);
-
 
   function renderSquare(i) {
     return (
@@ -111,3 +100,4 @@ function App() {
 }
 
 export default App;
+//Hari ini saya belajar terkait UI framework . saya juga menyelesaikan homework dengan menambah tampilan UI pada game tic-tac-toe.

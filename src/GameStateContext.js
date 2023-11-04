@@ -21,7 +21,7 @@ function gameStateReducer(state, action) {
   }
 }
 
-export function GameStateProvider({ children }) {
+export function GameStateProvider(props) {
   const [state, dispatch] = useReducer(gameStateReducer, initialState);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export function GameStateProvider({ children }) {
 
   return (
     <GameStateContext.Provider value={{ state, dispatch }}>
-      {children}
+      {props.children}
     </GameStateContext.Provider>
   );
 }
