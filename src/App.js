@@ -100,4 +100,3 @@ function App() {
 }
 
 export default App;
-//Hari ini saya belajar terkait UI framework . saya juga menyelesaikan homework dengan menambah tampilan UI pada game tic-tac-toe.
