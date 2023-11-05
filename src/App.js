@@ -22,15 +22,15 @@ function Board() {
 
   function renderSquare(i) {
     return (
-      <button className="square bg-blue-500 text-white font-bold py-2 px-4 m-1 rounded" onClick={() => selectSquare(i)}>
+      <button className="square w-16 h-16 hover:shadow-lg hover:bg-blue-600 bg-blue-500 text-white font-bold py-2 px-4 m-7 rounded" onClick={() => selectSquare(i)}>
         {squares[i]}
       </button>
     );
   }
 
   return (
-    <div>
-      <div>{status}</div>
+    <div className="flex-auto text-center py-5 bg-slate-200 md:rounded-lg md:w-1/2 lg:w-1/4 mx-auto my-auto font-semibold text-4xl md:text-xl">
+      <div className="my-5">{status}</div>
       <div >
         {renderSquare(0)}
         {renderSquare(1)}
@@ -46,7 +46,7 @@ function Board() {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button onClick={restart}>
+      <button className="my-5" onClick={restart}>
         Restart the Game
       </button>
     </div>
@@ -56,7 +56,7 @@ function Board() {
 function Game() {
   return (
     <GameStateProvider>
-      <div >
+      <div className="min-h-screen bg-slate-200 md:bg-black">
         <Board />
       </div>
     </GameStateProvider>
