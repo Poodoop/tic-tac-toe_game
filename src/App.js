@@ -22,7 +22,7 @@ function Board() {
 
   function renderSquare(i) {
     return (
-      <button className="square" onClick={() => selectSquare(i)}>
+      <button className="square bg-blue-500 text-white font-bold py-2 px-4 m-1 rounded" onClick={() => selectSquare(i)}>
         {squares[i]}
       </button>
     );
